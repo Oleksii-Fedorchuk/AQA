@@ -276,29 +276,29 @@ def test_add_to_shopping_cart():
     chrome_driver = Chrome("Automation_tests/utilities/chromedriver")
     chrome_driver.get("https://www.saucedemo.com")
     """Email_input"""
-    email_input_locator = "//input[@id='user-name']"
-    email_input_element = chrome_driver.find_element(By.XPATH, email_input_locator)
+    email_input_locator = "#user-name"
+    email_input_element = chrome_driver.find_element(By.CSS_SELECTOR, email_input_locator)
     email_input_element.clear()
     email_input_element.send_keys(user_name)
     """Password_input"""
-    password_input_locator = "//input[@id='password']"
-    password_input_element = chrome_driver.find_element(By.XPATH, password_input_locator)
+    password_input_locator = "#password"
+    password_input_element = chrome_driver.find_element(By.CSS_SELECTOR, password_input_locator)
     password_input_element.clear()
     password_input_element.send_keys(password)
     """Login_button"""
-    login_button_locator = "//*[@id='login-button']"
-    login_button_element = chrome_driver.find_element(By.XPATH, login_button_locator)
+    login_button_locator = "#login-button"
+    login_button_element = chrome_driver.find_element(By.CSS_SELECTOR, login_button_locator)
     login_button_element.click()
     """Add_to_cart"""
-    add_to_cart_button_locator = "//*[@id='add-to-cart-sauce-labs-backpack']"
-    add_to_cart_button_item = chrome_driver.find_element(By.XPATH, add_to_cart_button_locator)
+    add_to_cart_button_locator = "#add-to-cart-sauce-labs-backpack"
+    add_to_cart_button_item = chrome_driver.find_element(By.CSS_SELECTOR, add_to_cart_button_locator)
     add_to_cart_button_item.click()
     """Shopping_cart"""
-    shopping_cart_locator = "//*[@id='shopping_cart_container']"
-    shopping_cart_item = chrome_driver.find_element(By.XPATH, shopping_cart_locator)
+    shopping_cart_locator = "#shopping_cart_container"
+    shopping_cart_item = chrome_driver.find_element(By.CSS_SELECTOR, shopping_cart_locator)
     shopping_cart_item.click()
-    item_in_shopping_cart_locator = "//*[@id='item_4_title_link']"
-    item_in_shopping_cart_item = chrome_driver.find_element(By.XPATH, item_in_shopping_cart_locator)
+    item_in_shopping_cart_locator = "#item_4_title_link"
+    item_in_shopping_cart_item = chrome_driver.find_element(By.CSS_SELECTOR, item_in_shopping_cart_locator)
     expected_result = "Sauce Labs Backpack"
     assert item_in_shopping_cart_item.text == expected_result
 
@@ -310,58 +310,60 @@ def test_checkout():
     chrome_driver = Chrome("Automation_tests/utilities/chromedriver")
     chrome_driver.get("https://www.saucedemo.com")
     """Email_input"""
-    email_input_locator = "//input[@id='user-name']"
-    email_input_element = chrome_driver.find_element(By.XPATH, email_input_locator)
+    email_input_locator = "#user-name"
+    email_input_element = chrome_driver.find_element(By.CSS_SELECTOR, email_input_locator)
     email_input_element.clear()
     email_input_element.send_keys(user_name)
     """Password_input"""
-    password_input_locator = "//input[@id='password']"
-    password_input_element = chrome_driver.find_element(By.XPATH, password_input_locator)
+    password_input_locator = "#password"
+    password_input_element = chrome_driver.find_element(By.CSS_SELECTOR, password_input_locator)
     password_input_element.clear()
     password_input_element.send_keys(password)
     """Login_button"""
-    login_button_locator = "//*[@id='login-button']"
-    login_button_element = chrome_driver.find_element(By.XPATH, login_button_locator)
+    login_button_locator = "#login-button"
+    login_button_element = chrome_driver.find_element(By.CSS_SELECTOR, login_button_locator)
     login_button_element.click()
     """Add_to_cart"""
-    add_to_cart_button_locator = "//*[@id='add-to-cart-sauce-labs-backpack']"
-    add_to_cart_button_item = chrome_driver.find_element(By.XPATH, add_to_cart_button_locator)
+    add_to_cart_button_locator = "#add-to-cart-sauce-labs-backpack"
+    add_to_cart_button_item = chrome_driver.find_element(By.CSS_SELECTOR, add_to_cart_button_locator)
     add_to_cart_button_item.click()
     """Shopping_cart"""
-    shopping_cart_locator = "//*[@id='shopping_cart_container']"
-    shopping_cart_item = chrome_driver.find_element(By.XPATH, shopping_cart_locator)
+    shopping_cart_locator = "#shopping_cart_container"
+    shopping_cart_item = chrome_driver.find_element(By.CSS_SELECTOR, shopping_cart_locator)
     shopping_cart_item.click()
     """Checkout"""
-    checkout_button_locator = "//*[@id='checkout']"
-    checkout_button_item = chrome_driver.find_element(By.XPATH, checkout_button_locator)
+    checkout_button_locator = "#checkout"
+    checkout_button_item = chrome_driver.find_element(By.CSS_SELECTOR, checkout_button_locator)
     checkout_button_item.click()
     """Checkout_information"""
     first_name = "Oleksii"
     last_name = "Fedorchuk"
     postal_code = 61001
     """First_name_field"""
-    first_name_locator = "//input[@id='first-name']"
-    first_name_item = chrome_driver.find_element(By.XPATH, first_name_locator)
+    first_name_locator = "#first-name"
+    first_name_item = chrome_driver.find_element(By.CSS_SELECTOR, first_name_locator)
     first_name_item.send_keys(first_name)
     """Last_name_field"""
-    last_name_locator = "//input[@id='last-name']"
-    last_name_item = chrome_driver.find_element(By.XPATH, last_name_locator)
+    last_name_locator = "#last-name"
+    last_name_item = chrome_driver.find_element(By.CSS_SELECTOR, last_name_locator)
     last_name_item.send_keys(last_name)
     """Postal_code_field"""
-    postal_code_locator = "//input[@id='postal-code']"
-    postal_code_item = chrome_driver.find_element(By.XPATH, postal_code_locator)
+    postal_code_locator = "#postal-code"
+    postal_code_item = chrome_driver.find_element(By.CSS_SELECTOR, postal_code_locator)
     postal_code_item.send_keys(postal_code)
     continue_button_locator = "//*[@id='continue']"
     continue_button_item = chrome_driver.find_element(By.XPATH, continue_button_locator)
     continue_button_item.click()
-    """Order_information"""
-    item_total_cost_locator = "//*[@id='checkout_summary_container']/div/div[2]/div[5]/text()[2]"
-    item_total_cost_item = chrome_driver.find_element(By.XPATH, item_total_cost_locator)
-    taxes_locator = "//*[@id='checkout_summary_container']/div/div[2]/div[6]/text()[2]]"
-    taxes_item = chrome_driver.find_element(By.XPATH, taxes_locator)
-    total_sum_locator = "//*[@id='checkout_summary_container']/div/div[2]/div[7]/text()[2]]"
-    total_sum_item = chrome_driver.find_element(By.XPATH, total_sum_locator)
-    assert total_sum_item == int(item_total_cost_item) + int(taxes_item)
+    """Checkout_overview"""
+    inventory_item_locator = "//*[@id='item_4_title_link']/div"
+    inventory_item = chrome_driver.find_element(By.XPATH, inventory_item_locator)
+    assert inventory_item.text == "Sauce Labs Backpack"
+    finish_button_locator = "//*[@id='finish']"
+    finish_button_item = chrome_driver.find_element(By.XPATH, finish_button_locator)
+    finish_button_item.click()
+    complete_header_locator = "//*[@id='checkout_complete_container']/h2"
+    complete_header_item = chrome_driver.find_element(By.XPATH, complete_header_locator)
+    assert complete_header_item.text == "THANK YOU FOR YOUR ORDER"
 
 
 def test_remove_from_shopping_cart():
