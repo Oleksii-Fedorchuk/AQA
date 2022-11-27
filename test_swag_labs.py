@@ -1,13 +1,18 @@
-import time
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from Automation_tests.utilities.config_parser import ReadConfig
 
 
-def test_title():
-    """Pre_set_up"""
-    chrome_driver = Chrome("Automation_tests/utilities/chromedriver")
-    chrome_driver.maximize_window()
-    chrome_driver.get("https://www.saucedemo.com")
+def test_1(open_login_page):
+    login_page = open_login_page
+    login_page.set_email(ReadConfig.get_standard_user_name())
+    login_page.set_password(ReadConfig.get_password())
+
+
+def test_title(create_driver):
+    chrome_driver = create_driver
     actual_title = chrome_driver.title
     assert actual_title == "Swag Labs"
 
@@ -82,7 +87,7 @@ def test_locked_user_error():
     login_button_locator = "//*[@id='login-button']"
     login_button_element = chrome_driver.find_element(By.XPATH, login_button_locator)
     login_button_element.click()
-    time.sleep(1)
+    chrome_driver.implicitly_wait(1)
     """Result"""
     error_locator = "//*[@data-test='error']"
     # error_locator = "//*[contains(text(),'Epic sadface: Sorry, this user has been locked out.')]"
@@ -176,22 +181,19 @@ def test_burger_menu():
     assert reset_app_state_item.text == "RESET APP STATE"
 
 
-def test_about():
-    """Pre_set_up"""
-    user_name = "standard_user"
-    password = "secret_sauce"
-    chrome_driver = Chrome("Automation_tests/utilities/chromedriver")
-    chrome_driver.get("https://www.saucedemo.com")
+def test_about(create_driver, create_wait_object, ):
+    chrome_driver = create_driver
+    wait = create_wait_object
     """Email_input"""
     email_input_locator = "//input[@id='user-name']"
     email_input_element = chrome_driver.find_element(By.XPATH, email_input_locator)
     email_input_element.clear()
-    email_input_element.send_keys(user_name)
+    email_input_element.send_keys(ReadConfig.get_standard_user_name())
     """Password_input"""
     password_input_locator = "//input[@id='password']"
     password_input_element = chrome_driver.find_element(By.XPATH, password_input_locator)
     password_input_element.clear()
-    password_input_element.send_keys(password)
+    password_input_element.send_keys(ReadConfig.get_password())
     """Login_button"""
     login_button_locator = "//*[@id='login-button']"
     login_button_element = chrome_driver.find_element(By.XPATH, login_button_locator)
@@ -201,9 +203,10 @@ def test_about():
     burger_menu_element = chrome_driver.find_element(By.XPATH, burger_menu_locator)
     burger_menu_element.click()
     about_locator = "//*[@id='about_sidebar_link']"
-    about_locator = chrome_driver.find_element(By.XPATH, about_locator)
-    time.sleep(0.5)
-    about_locator.click()
+    # about_element = chrome_driver.find_element(By.XPATH, about_locator)
+    about_element = wait.until(EC.element_to_be_clickable((By.XPATH, about_locator)))
+    # chrome_driver.implicitly_wait(5)
+    about_element.click()
     actual_title = chrome_driver.title
     assert actual_title == "Cross Browser Testing, Selenium Testing, Mobile Testing | Sauce Labs"
 
@@ -214,6 +217,7 @@ def test_log_out():
     password = "secret_sauce"
     chrome_driver = Chrome("Automation_tests/utilities/chromedriver")
     chrome_driver.get("https://www.saucedemo.com")
+    wait = WebDriverWait(chrome_driver, 5)
     """Email_input"""
     email_input_locator = "//input[@id='user-name']"
     email_input_element = chrome_driver.find_element(By.XPATH, email_input_locator)
@@ -233,8 +237,9 @@ def test_log_out():
     burger_menu_element = chrome_driver.find_element(By.XPATH, burger_menu_locator)
     burger_menu_element.click()
     logout_locator = "//*[@id='logout_sidebar_link']"
-    logout_item = chrome_driver.find_element(By.XPATH, logout_locator)
-    time.sleep(0.5)
+    # logout_item = chrome_driver.find_element(By.XPATH, logout_locator)
+    logout_item = wait.until(EC.element_to_be_clickable((By.XPATH, logout_locator)))
+    # chrome_driver.implicitly_wait(5)
     logout_item.click()
     actual_title = chrome_driver.title
     assert actual_title == "Swag Labs"
