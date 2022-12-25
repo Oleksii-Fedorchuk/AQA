@@ -1,6 +1,5 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
 
 
 class BasePage:
@@ -10,6 +9,9 @@ class BasePage:
 
     def _wait_until_element_located(self, locator):
         return self.__wait.until(EC.presence_of_element_located(locator))
+
+    def _wait_until_elements_located(self, locator):
+        return self.__wait.until(EC.presence_of_all_elements_located(locator))
 
     def _wait_until_element_visible(self, locator):
         return self.__wait.until(EC.visibility_of_element_located(locator))
@@ -27,15 +29,14 @@ class BasePage:
         element = self._wait_until_clickable(locator)
         element.click()
 
-    def is_displayed(self, locator):
-        try:
-            self._wait_until_element_visible(locator)
-            return True
-        except TimeoutException:
-            return False
-
     def read_text(self, locator):
-        return self._wait_until_element_located(locator).text
+        return self._wait_until_element_visible(locator).text
 
     def get_image(self, locator):
         return self._wait_until_element_located(locator)
+
+    def current_url(self):
+        return self._driver.current_url
+
+    def current_title(self):
+        return self._driver.title

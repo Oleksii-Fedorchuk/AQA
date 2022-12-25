@@ -9,8 +9,5 @@ class InventoryPage(BasePage):
     __inventory_url = "https://www.saucedemo.com/inventory.html"
     __invalid_image = (By.XPATH, "//*[@src='/static/media/sl-404.168b1cce.jpg']")
 
-    def get_invalid_image(self):
-        return self.get_image(self.__invalid_image)
-
     def get_inventory_url(self):
         return self.__inventory_url

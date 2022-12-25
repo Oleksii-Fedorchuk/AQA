@@ -1,5 +1,4 @@
 import pytest
-from Automation_tests.data.error_data import locked_error_on_login_page
 from Automation_tests.page_objects.burger_menu import BurgerMenu
 from Automation_tests.page_objects.inventory_page import InventoryPage
 from Automation_tests.page_objects.login_page import LoginPage
@@ -28,15 +27,10 @@ def inventory_page(create_driver):
 
 
 @pytest.fixture()
-def open_burger_menu(create_driver):
+def burger_menu(create_driver):
     return BurgerMenu(create_driver)
 
 
 @pytest.fixture()
 def shopping_cart(create_driver):
     return ShoppingCart(create_driver)
-
-
-@pytest.fixture()
-def get_locked_error():
-    return locked_error_on_login_page

@@ -1,42 +1,40 @@
 from selenium.webdriver.common.by import By
-from Automation_tests.data.error_data import locked_error_on_login_page
 from Automation_tests.utilities.web_ui.base_page import BasePage
+from CONSTANTS import main_page_url, title_name, inventory_page_url
+from Automation_tests.utilities.config_parser import ReadConfig
 
 
 class LoginPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    __login_url = "https://www.saucedemo.com/"
     __email_input = (By.XPATH, "//input[@id='user-name']")
     __password_input = (By.XPATH, "//input[@id='password']")
     __login_button = (By.XPATH, "//*[@id='login-button']")
     __login_error = (By.XPATH, "//*[@data-test='error']")
-    __get_locked_error = locked_error_on_login_page
-    __title = "Swag Labs"
 
+    @property
+    def login_page_title(self):
+        return main_page_url.title()
+
+    @property
+    def inventory_page_url(self):
+        return inventory_page_url
+
+    @property
     def login_page_url(self):
-        return self.__login_url
+        return main_page_url
 
-    def set_email(self, email_value):
+    @property
+    def title_name(self):
+        return title_name
+
+    def login(self, email_value):
         self._send_keys(self.__email_input, email_value)
-        return self
-
-    def set_password(self, password_value):
-        self._send_keys(self.__password_input, password_value)
-        return self
-
-    def click_login_button(self):
+        self._send_keys(self.__password_input, ReadConfig.get_password())
         self._click(self.__login_button)
 
-    def _is_login_error_text_displayed(self):
-        return self.is_displayed(self.__login_error)
-
-    def get_text(self):
+    def _is_login_error_text(self):
         return self.read_text(self.__login_error)
 
-    def get_locked_error(self):
-        return self.__get_locked_error
 
-    def get_title(self):
-        return self.__title
