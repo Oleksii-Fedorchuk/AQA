@@ -32,4 +32,4 @@ class BurgerMenu(BasePage):
         return about_url
 
     def click_logout_button(self):
-        return self._click(self._wait_until_element_located(self.__logout))
+        self._click(self._wait_until_element_located(self.__logout))

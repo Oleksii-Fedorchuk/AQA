@@ -1,3 +1,5 @@
+import time
+
 from Automation_tests.utilities.config_parser import ReadConfig
 
 
@@ -32,4 +34,4 @@ def test_remove_from_shopping_cart(open_login_page, shopping_cart):
     shopping_cart.click_on_add_to_cart_button()
     shopping_cart.open_shopping_cart()
     shopping_cart.click_on_remove_from_shopping_cart_button()
-    assert shopping_cart.item_in_shopping_cart() is not True
+    assert shopping_cart.item_in_shopping_cart is not True

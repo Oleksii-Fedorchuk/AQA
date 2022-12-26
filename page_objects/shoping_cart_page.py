@@ -23,7 +23,7 @@ class ShoppingCart(BasePage):
     __remove_from_shopping_cart_button = (By.XPATH, "//*[@id='remove-sauce-labs-backpack']")
 
     def open_shopping_cart(self):
-        return self._click(self.__shopping_cart)
+        self._click(self.__shopping_cart)
 
     def your_cart(self):
         return self.read_text(self.__your_cart)
@@ -32,7 +32,7 @@ class ShoppingCart(BasePage):
         return self.__your_cart_text
 
     def click_on_add_to_cart_button(self):
-        return self._click(self.__add_to_cart_button)
+        self._click(self.__add_to_cart_button)
 
     def item_in_shopping_cart(self):
         return self.read_text(self.__item_in_shopping_cart)
@@ -41,7 +41,7 @@ class ShoppingCart(BasePage):
         return self.__name_of_item_in_shopping_item
 
     def click_on_checkout_button(self):
-        return self._click(self.__checkout_button)
+        self._click(self.__checkout_button)
 
     def set_credentials(self, first_name_value, last_name_value, postal_code_value):
         self._send_keys(self.__first_name_input, first_name_value)
@@ -50,10 +50,10 @@ class ShoppingCart(BasePage):
         return self
 
     def click_on_continue_button(self):
-        return self._click(self.__continue_button)
+        self._click(self.__continue_button)
 
     def click_on_finish_button(self):
-        return self._click(self.__finish_button)
+        self._click(self.__finish_button)
 
     def complete_header(self):
         return self.read_text(self.__complete_header)
@@ -62,4 +62,4 @@ class ShoppingCart(BasePage):
         return self.__complete_header_text
 
     def click_on_remove_from_shopping_cart_button(self):
-        return self.__remove_from_shopping_cart_button
+        self._click(self.__remove_from_shopping_cart_button)
