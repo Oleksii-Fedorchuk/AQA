@@ -29,7 +29,7 @@ class LoginPage(BasePage):
     def title_name(self):
         return title_name
 
-    def login(self, email_value):
+    def login(self, email_value, ):
         self._send_keys(self.__email_input, email_value)
         self._send_keys(self.__password_input, ReadConfig.get_password())
         self._click(self.__login_button)
