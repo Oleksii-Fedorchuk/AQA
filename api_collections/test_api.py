@@ -2,7 +2,7 @@ from requests import get
 from http import HTTPStatus
 
 from Automation_tests.api_collections.config_file import BASE_URL
-from Automation_tests.api_collections.person_collection import Booking
+from Automation_tests.api_collections.booking_collection import BookingCollection
 
 
 def test_get_status_200():
@@ -11,10 +11,23 @@ def test_get_status_200():
                                                   f"Expected: {HTTPStatus.OK}"
 
 
-def test_get_booking():
-    response = Booking().booking()
-    # response_data = response.json()
+def test_create_booking():
+    response = BookingCollection().create_booking()
+    c = 0
+    print(response.text)
+    assert response.status_code == HTTPStatus.OK
+
+
+def test_get_booking_id():
+    response = BookingCollection().get_booking_id()
+    c = 0
+    print(response.text)
     assert response.status_code == HTTPStatus.OK, f"Status code is not as expected\nActual {response.status_code}\n " \
                                                   f"Expected: {HTTPStatus.OK}"
-    # assert response_data == [{"firstname": Oleksii}, {"lastname": Fedorchuk}, {"checkin": 2022 - 12 - 11},
-    #                          {"checkout": 2023 - 12 - 11}]
+
+
+def test_getting_token():
+    response = BookingCollection().get_token()
+    print(response.text)
+    assert response.status_code == HTTPStatus.OK, f"Status code is not as expected\nActual {response.status_code}\n " \
+                                                  f"Expected: {HTTPStatus.OK}"
