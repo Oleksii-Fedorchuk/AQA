@@ -14,7 +14,7 @@ def env():
     """
     Implementation a .json config
     """
-    with open("../configurations/configuration.json") as file:
+    with open("/Users/oleksiifedorchuk/PycharmProjects/AQA/Automation_tests/configurations/configuration.json") as file:
         env_dict = json.loads(file.read())
     return Configuration(**env_dict)
 
