@@ -9,11 +9,6 @@ class BookingCollection(BaseAPI):
         super().__init__()
         self._booking_url = "booking"
         self._token_url = "auth"
-        self._update_url = "booking/787"
-
-    def get_token(self):
-        response = self.post(f"{self._token_url}", body={"username": USERNAME, "password": PASSWORD})
-        return response
 
     def create_booking(self):
         checkin = datetime.date(2023, 1, 1)
