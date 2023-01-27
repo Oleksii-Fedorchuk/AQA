@@ -1,7 +1,6 @@
-import time
-
-from selenium.webdriver.common.by import By
 from Automation_tests.utilities.web_ui.base_page import BasePage
+import time
+from selenium.webdriver.common.by import By
 from CONSTANTS import about_url
 
 

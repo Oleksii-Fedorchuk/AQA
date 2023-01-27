@@ -1,0 +1,21 @@
+{
+  "base_url": "https://www.saucedemo.com",
+  "dashboard_url": "https://www.saucedemo.com/inventory.html",
+  "standard_user_name": "standard_user",
+  "locked_user_name": "locked_out_user",
+  "problem_user_name": "problem_user",
+  "performance_glitch_user_name": "performance_glitch_user",
+  "password": "secret_sauce",
+  "browser_id": "1",
+  "is_headless": "True",
+  "debug_mode": "False",
+  "client_name": "Oleksii",
+  "client_last_name": "Fedorchuk",
+  "client_postal_code": "61001",
+
+  "db_user": "postgres",
+  "db_password": "123",
+  "db_host": "127.0.0.1",
+  "db_port": "5432",
+  "db_name": "mydb"
+}
