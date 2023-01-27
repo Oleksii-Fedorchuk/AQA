@@ -4,9 +4,11 @@ from Automation_tests.page_objects.burger_menu import BurgerMenu
 from Automation_tests.page_objects.inventory_page import InventoryPage
 from Automation_tests.page_objects.login_page import LoginPage
 from Automation_tests.page_objects.shoping_cart_page import ShoppingCart
-# from Automation_tests.utilities.config_parser import ReadConfig
 from Automation_tests.utilities.configurations import Configuration
 from Automation_tests.utilities.driver_factory import DriverFactory
+
+
+# from Automation_tests.utilities.config_parser import ReadConfig
 
 
 @pytest.fixture(scope="session")
