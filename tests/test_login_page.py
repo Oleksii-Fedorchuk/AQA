@@ -1,6 +1,6 @@
 import pytest
-from Automation_tests.utilities.config_parser import ReadConfig
 from CONSTANTS import locked_error_on_login_page
+from utilities.config_parser import ReadConfig
 
 
 def test_title(open_login_page):

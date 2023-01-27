@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from Automation_tests.utilities.web_ui.base_page import BasePage
 from CONSTANTS import main_page_url, title_name, inventory_page_url
-from Automation_tests.utilities.config_parser import ReadConfig
+from utilities.config_parser import ReadConfig
+from utilities.web_ui.base_page import BasePage
 
 
 class LoginPage(BasePage):

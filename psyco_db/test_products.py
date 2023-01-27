@@ -1,4 +1,4 @@
-from Automation_tests.psyco_db.products_repository import ProductsRepository
+from psyco_db.products_repository import ProductsRepository
 
 products_repository = ProductsRepository()
 

@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Automation_tests.utilities.web_ui.base_page import BasePage
+from utilities.web_ui.base_page import BasePage
 
 
 class ShoppingCart(BasePage):

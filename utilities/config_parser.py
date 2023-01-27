@@ -1,7 +1,7 @@
 import configparser
 
 config = configparser.RawConfigParser()
-config.read("/Users/oleksiifedorchuk/PycharmProjects/AQA/Automation_tests/configurations/configuration.ini")
+config.read("../configurations/configuration.ini")
 
 
 class ReadConfig:

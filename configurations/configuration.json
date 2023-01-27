@@ -12,7 +12,6 @@
   "client_name": "Oleksii",
   "client_last_name": "Fedorchuk",
   "client_postal_code": "61001",
-
   "db_user": "postgres",
   "db_password": "123",
   "db_host": "127.0.0.1",

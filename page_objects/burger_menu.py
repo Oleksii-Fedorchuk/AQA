@@ -1,6 +1,6 @@
-from Automation_tests.utilities.web_ui.base_page import BasePage
 import time
 from selenium.webdriver.common.by import By
+from utilities.web_ui.base_page import BasePage
 from CONSTANTS import about_url
 
 
@@ -32,5 +32,3 @@ class BurgerMenu(BasePage):
 
     def click_logout_button(self):
         self._click(self._wait_until_element_located(self.__logout))
-
-

@@ -1,4 +1,4 @@
-from Automation_tests.psyco_db.base_repository import BaseRepository
+from psyco_db.base_repository import BaseRepository
 
 
 class ProductsRepository(BaseRepository):
